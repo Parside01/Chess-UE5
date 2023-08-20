@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "BaseActor.generated.h"
 
+class UMaterial;
+
 UCLASS()
 class CHESS_API ABaseActor : public AActor
 {
@@ -19,7 +21,25 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	URPOPERTY()
+//variables dir
+
+	//The actor's material if we play for black
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Materials")
+		UMaterial* DarkMaterial; 
+
+	//The actor's material if we play for white
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Materials")
+		UMaterial* WhiteMaterial; 
+
+	//Material when clicking on a white actor
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Materials")
+		UMaterial* ChooseWhiteMaterial;
+
+	//Material when clicking on a black actor
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Materials")
+		UMaterial* ChooseBlackMaterial;
+
+//function dir
 
 public:	
 	// Called every frame
