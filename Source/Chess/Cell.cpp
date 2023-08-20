@@ -9,6 +9,18 @@ ACell::ACell()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	static ConstructorHelpers::FObjectFinder<UMaterial> M_Light(TEXT("Material'/Game/Materials/M_Wood_Pine.M_Wood_Pine'"));
+	if (M_Light.Object) LightMaterial = M_Light.Object;
+
+	static ConstructorHelpers::FObjectFinder<UMaterial> M_Dark(TEXT("Material'/Game/Materials/M_Wood_Walnut.M_Wood_Walnut'"));
+	if (M_Dark.Object) DarkMaterial = M_Dark.Object;
+
+	static ConstructorHelpers::FObjectFinder<UMaterial> M_Hightlight(TEXT("Material'/Game/Materials/M_SelectedMaterial.M_SelectedMaterial'"));
+	if (M_Hightlight.Object)  HightlightedMaterial = M_Hightlight.Object;
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> StaticMeshAsset(TEXT("StaticMesh'/Game/Meshes/Floor.Floor'"));
+	if (StaticMeshAsset.Object) StaticMesh = StaticMeshAsset.Object;
+
 	for (int32 i{ 0 }; i < 64; i++)
 	{
 		int32 X = (i / 8) * 400;
