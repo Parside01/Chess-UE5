@@ -39,7 +39,25 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Materials")
 		UMaterial* ChooseBlackMaterial;
 
+	//the first move
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
+		bool bIsWhite;
+
+
 //function dir
+
+	//functions that are activated at the moment when the player clicks on the figure
+	UFUNCTION()
+		void StartChoose();
+	UFUNCTION()
+		void StopChoose();
+
+
+	UFUNCTION()
+		virtual void ActorPathFinder(TArray<UStaticMeshComponent*>* Cells) = 0;
+
+	UFUNCTION()
+		virtual void Move(FVector Location);
 
 public:	
 	// Called every frame
