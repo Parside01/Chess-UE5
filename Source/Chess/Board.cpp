@@ -33,7 +33,18 @@ ABoard::ABoard()
 			ACell* Cell = Board[Letter];
 			Cell->AttachToComponent(RootComponent, FAttachmentTransformRules::SnapToTargetIncludingScale);
 
-			Cell->SetActorRelativeLocation(FVector(X, Y, 0))
+			Cell->SetActorRelativeLocation(FVector(X, Y, 0));
+
+			bool Result = XOR((((k / 8) % 2) == 0 ? false : true), (((k % 8) % 2) == 0 ? false : true));
+
+			if (Result)
+			{
+				Cell->SetMaterial(LightMaterial);
+			}
+			else
+			{
+				Cell->SetMaterial(DarkMaterial);
+			}
 		}
 	}
 }

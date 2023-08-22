@@ -15,21 +15,8 @@ ACell::ACell()
 	StaticMeshComponent->SetStaticMesh(StaticMesh);
 
 	NumCell++;
-	
-
-	//for (int32 i{ 0 }; i < 64; i++)
-	//{
-	//	int32 X = (i / 8) * 400;
-	//	int32 Y = (i % 8) * 400;
-
-	//	StaticMeshes.Add(CreateDefaultSubobject<UStaticMeshComponent>(*FString("Mesh" + FString::FromInt(i))));
-	//	StaticMeshes[i]->SetupAttachment(RootComponent);
-
-	//	StaticMeshes[i]->SetStaticMesh(StaticMesh);
-
-	//	StaticMeshes[i]->SetRelativeLocation(FVector(X, Y, 0));
-	//}
 }
+
 
 // Called when the game starts or when spawned
 void ACell::BeginPlay()

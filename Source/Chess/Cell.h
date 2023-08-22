@@ -7,7 +7,7 @@
 #include "Cell.generated.h"
 
 class UMaterial;
-
+class UStaticMesh;
 static int NumCell{ 0 };
 
 UCLASS()
@@ -26,6 +26,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cell StaticMesh")
 		class UStaticMeshComponent* StaticMeshComponent;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cell StaticMesh")
+		 UStaticMesh* StaticMesh;
+	
 	
 public:
 
@@ -33,10 +36,10 @@ public:
 		void SetMaterial(UMaterial* Material) { StaticMeshComponent->SetMaterial(0, Material); }
 
 	UFUNCTION()
-		UStaticMeshComponent* GetMesh() { return StaticMeshComponent; }
+		UStaticMeshComponent* GetStaticMesh() { return StaticMeshComponent; }
 
 	UFUNCTION()
-		void SetStaticMesh(UStaticMesh* StaticMesh);
+		void SetStaticMesh(UStaticMesh* NewMesh);
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Variebles")
 		bool bIsEmploy;
