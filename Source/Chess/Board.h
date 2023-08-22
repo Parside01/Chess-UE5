@@ -29,10 +29,12 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Material")
 		UMaterial* DefaultMaterial;
 
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Map")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Map")
 		TMap<FString, ACell*> Board;
 
 	virtual void BeginPlay() override;
+
+	void InitBoard();
 
 public:	
 

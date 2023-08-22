@@ -2,12 +2,13 @@
 
 
 #include "BaseActor.h"
+#include "Cell.h"
 
 // Sets default values
 ABaseActor::ABaseActor()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 }
 
@@ -26,7 +27,7 @@ void ABaseActor::StopChoose()
 {
 }
 
-void ABaseActor::ActorPathFinder(TArray<UStaticMeshComponent*>& Cells)
+void ABaseActor::ActorPathFinder(TMap<FString, ACell*>& Cells)
 {
 }
 

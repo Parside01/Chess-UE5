@@ -15,8 +15,17 @@ ABoard::ABoard()
 
 	static ConstructorHelpers::FObjectFinder<UMaterial> M_Hightlight(TEXT("Material'/Game/Materials/M_SelectedMaterial.M_SelectedMaterial'"));
 	if (M_Hightlight.Object)  HightlightedMaterial = M_Hightlight.Object;
+}
 
 
+void ABoard::BeginPlay()
+{
+	Super::BeginPlay();
+	InitBoard();
+}
+
+void ABoard::InitBoard()
+{
 	for (int32 i{ 0 }; i < 8; i++)
 	{
 		for (int32 j{ 0 }; j < 8; j++)
@@ -24,34 +33,34 @@ ABoard::ABoard()
 			TCHAR Char = 'A' + i;
 			FString Letter = FString(FString::Chr(Char) + FString::FromInt(j));
 
-			int32 k = i * j;
+			int32 k = (i * 8) + j;
 			int32 X = (k / 8) * 400;
 			int32 Y = (k % 8) * 400;
 
-			Board.Add(Letter, CreateDefaultSubobject<ACell>(*Letter));
+			FActorSpawnParameters SpawnParams;
+			SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-			ACell* Cell = Board[Letter];
-			Cell->AttachToComponent(RootComponent, FAttachmentTransformRules::SnapToTargetIncludingScale);
+			ACell* Cell = GetWorld()->SpawnActor<ACell>(ACell::StaticClass(), FVector(X, Y, 0), FRotator(0), SpawnParams);
 
-			Cell->SetActorRelativeLocation(FVector(X, Y, 0));
-
-			bool Result = XOR((((k / 8) % 2) == 0 ? false : true), (((k % 8) % 2) == 0 ? false : true));
-
-			if (Result)
+			if (Cell)
 			{
-				Cell->SetMaterial(LightMaterial);
-			}
-			else
-			{
-				Cell->SetMaterial(DarkMaterial);
+				Board.Add(Letter, Cell);
+				Cell->AttachToComponent(RootComponent, FAttachmentTransformRules::SnapToTargetIncludingScale);
+
+				Cell->SetActorRelativeLocation(FVector(X, Y, 0));
+
+				bool Result = XOR((((k / 8) % 2) == 0 ? false : true), (((k % 8) % 2) == 0 ? false : true));
+
+				if (Result)
+				{
+					Cell->SetMaterial(LightMaterial);
+				}
+				else
+				{
+					Cell->SetMaterial(DarkMaterial);
+				}
 			}
 		}
 	}
-}
-
-
-void ABoard::BeginPlay()
-{
-	Super::BeginPlay();
 }
 

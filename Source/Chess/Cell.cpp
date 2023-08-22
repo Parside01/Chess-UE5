@@ -3,16 +3,20 @@
 
 #include "Cell.h"
 
-// Sets default values
+
 ACell::ACell()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+ 
+	PrimaryActorTick.bCanEverTick = false;
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> StaticMeshAsset(TEXT("StaticMesh'/Game/Meshes/Floor.Floor'"));
 	if (StaticMeshAsset.Object) StaticMesh = StaticMeshAsset.Object;
 	
-	StaticMeshComponent->SetStaticMesh(StaticMesh);
+	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CEll"));
+	StaticMeshComponent->SetupAttachment(RootComponent);
+
+	if(StaticMesh)
+		StaticMeshComponent->SetStaticMesh(StaticMesh);
 
 	NumCell++;
 }

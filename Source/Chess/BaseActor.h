@@ -55,7 +55,7 @@ protected:
 
 
 	UFUNCTION()
-		virtual void ActorPathFinder(TArray<UStaticMeshComponent*>& Cells);
+		virtual void ActorPathFinder(TMap<FString, ACell*>& Cells);
 
 	UFUNCTION()
 		virtual void Move(FVector Location);

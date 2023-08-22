@@ -43,6 +43,5 @@ public:
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Variebles")
 		bool bIsEmploy;
-
 	
 };
