@@ -7,6 +7,7 @@
 #include "BaseActor.generated.h"
 
 class UMaterial;
+class UStaticMeshComponent;
 
 UCLASS()
 class CHESS_API ABaseActor : public AActor
@@ -54,7 +55,7 @@ protected:
 
 
 	UFUNCTION()
-		virtual void ActorPathFinder(TArray<UStaticMeshComponent*>* Cells) = 0;
+		virtual void ActorPathFinder(TArray<UStaticMeshComponent*>& Cells);
 
 	UFUNCTION()
 		virtual void Move(FVector Location);
@@ -62,5 +63,4 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
 };

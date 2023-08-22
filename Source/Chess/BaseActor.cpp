@@ -18,6 +18,22 @@ void ABaseActor::BeginPlay()
 	
 }
 
+void ABaseActor::StartChoose()
+{
+}
+
+void ABaseActor::StopChoose()
+{
+}
+
+void ABaseActor::ActorPathFinder(TArray<UStaticMeshComponent*>& Cells)
+{
+}
+
+void ABaseActor::Move(FVector Location)
+{
+}
+
 // Called every frame
 void ABaseActor::Tick(float DeltaTime)
 {
