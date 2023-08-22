@@ -13,10 +13,9 @@ class CHESS_API ABoard : public AActor
 public:	
 
 	ABoard();
+
 protected:
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cell StaticMesh")
-		class ACell* Cell;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
 		UMaterial* LightMaterial;

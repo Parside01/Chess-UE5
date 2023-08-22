@@ -8,13 +8,15 @@
 
 class UMaterial;
 
+static int NumCell{ 0 };
+
 UCLASS()
 class CHESS_API ACell : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
+	
 	ACell();
 
 protected:
@@ -23,7 +25,8 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cell StaticMesh")
 		class UStaticMesh* StaticMesh;
-
+	
+	
 public:
 
 	UFUNCTION()
