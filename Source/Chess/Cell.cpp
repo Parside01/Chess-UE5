@@ -12,8 +12,11 @@ ACell::ACell()
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> StaticMeshAsset(TEXT("StaticMesh'/Game/Meshes/Floor.Floor'"));
 	if (StaticMeshAsset.Object) StaticMesh = StaticMeshAsset.Object;
 	
+	StaticMeshComponent->SetStaticMesh(StaticMesh);
+
 	NumCell++;
 	
+
 	//for (int32 i{ 0 }; i < 64; i++)
 	//{
 	//	int32 X = (i / 8) * 400;
@@ -48,5 +51,10 @@ void ACell::BeginPlay()
 	//		DefaultMaterial = DarkMaterial;
 	//	}
 	//}
+}
+
+void ACell::SetStaticMesh(UStaticMesh* NewMesh)
+{
+	StaticMeshComponent->SetStaticMesh(NewMesh);
 }
 

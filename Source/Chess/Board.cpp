@@ -32,6 +32,8 @@ ABoard::ABoard()
 
 			ACell* Cell = Board[Letter];
 			Cell->AttachToComponent(RootComponent, FAttachmentTransformRules::SnapToTargetIncludingScale);
+
+			Cell->SetActorRelativeLocation(FVector(X, Y, 0))
 		}
 	}
 }

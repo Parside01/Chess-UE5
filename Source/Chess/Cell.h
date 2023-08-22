@@ -24,14 +24,22 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cell StaticMesh")
-		class UStaticMesh* StaticMesh;
+		class UStaticMeshComponent* StaticMeshComponent;
 	
 	
 public:
 
 	UFUNCTION()
-		void SetMaterial(UMaterial* Material) { StaticMesh->SetMaterial(0, Material); }
+		void SetMaterial(UMaterial* Material) { StaticMeshComponent->SetMaterial(0, Material); }
+
+	UFUNCTION()
+		UStaticMeshComponent* GetMesh() { return StaticMeshComponent; }
+
+	UFUNCTION()
+		void SetStaticMesh(UStaticMesh* StaticMesh);
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Variebles")
 		bool bIsEmploy;
+
+	
 };
