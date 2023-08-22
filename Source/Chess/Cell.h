@@ -18,36 +18,17 @@ public:
 	ACell();
 
 protected:
-	// Called when the game starts or when spawned
+	
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cell StaticMesh")
 		class UStaticMesh* StaticMesh;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
-		UMaterial* LightMaterial;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
-		UMaterial* DarkMaterial;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
-		UMaterial* HightlightedMaterial;
-
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Material")
-		UMaterial* DefaultMaterial;
-
-	UPROPERTY(VisibleDefaultsOnly, Category = "All Cell")
-		TArray<class UStaticMeshComponent*> StaticMeshes;
+public:
 
 	UFUNCTION()
-		void Hightlight(UStaticMeshComponent* Mesh) { Mesh->SetMaterial(0, HightlightedMaterial); }
+		void SetMaterial(UMaterial* Material) { StaticMesh->SetMaterial(0, Material); }
 
-private:
-
-
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Variebles")
+		bool bIsEmploy;
 };

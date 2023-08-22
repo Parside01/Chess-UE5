@@ -1,4 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -12,15 +11,33 @@ class CHESS_API ABoard : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
-	ABoard();
 
+	ABoard();
 protected:
-	// Called when the game starts or when spawned
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cell StaticMesh")
+		class ACell* Cell;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
+		UMaterial* LightMaterial;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
+		UMaterial* DarkMaterial;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
+		UMaterial* HightlightedMaterial;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Material")
+		UMaterial* DefaultMaterial;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Map")
+		TMap<FString, ACell*> Board;
+
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION()
+		FORCEINLINE TMap<FString, ACell*> GetBoard() { return Board; }
 
 };
