@@ -8,6 +8,7 @@
 
 class UMaterial;
 class UStaticMeshComponent;
+class ACell;
 
 UCLASS()
 class CHESS_API ABaseActor : public AActor
@@ -24,9 +25,12 @@ protected:
 
 //variables dir
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "StaticMeshComponent")
+		UStaticMeshComponent* StaticMeshComponent;
+
 	//The actor's material if we play for black
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Materials")
-		UMaterial* DarkMaterial; 
+		UMaterial* BlackMaterial; 
 
 	//The actor's material if we play for white
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Materials")
@@ -43,6 +47,7 @@ protected:
 	//the first move
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
 		bool bIsWhite;
+
 
 
 //function dir

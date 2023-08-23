@@ -16,7 +16,6 @@ public:
 
 protected:
 
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
 		UMaterial* LightMaterial;
 
