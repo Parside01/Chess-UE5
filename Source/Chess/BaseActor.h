@@ -65,7 +65,6 @@ protected:
 	UFUNCTION()
 		virtual void Move(FVector Location);
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UFUNCTION()
+		virtual void Dead();
 };
