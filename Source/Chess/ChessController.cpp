@@ -58,5 +58,12 @@ void AChessController::SelectShapes()
 
 	if (!SelectedShapes) return;
 
-	if(SelectedShapes->bIsWhite != )
+	if (SelectedShapes->bIsWhite != CurrentPlayer->bIsWhite) return;
+	else
+	{
+		SelectedShapes->StartChoose();
+		bIsAnythingSelected = true;
+		SelectedShapes->ActorPathFinder(Board->GetBoard());
+	}
+
 }

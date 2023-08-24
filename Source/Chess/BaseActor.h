@@ -22,7 +22,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+public:
 //variables dir
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "StaticMeshComponent")
