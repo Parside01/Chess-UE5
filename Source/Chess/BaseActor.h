@@ -51,7 +51,7 @@ protected:
 
 
 //function dir
-
+public:
 	//functions that are activated at the moment when the player clicks on the figure
 	UFUNCTION()
 		void StartChoose();

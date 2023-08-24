@@ -6,7 +6,8 @@
 #include "GameFramework/Character.h"
 #include "ChessPlayer.generated.h"
 
-class 
+class AChessController;
+class ABaseActor;
 
 UCLASS()
 class CHESS_API AChessPlayer : public ACharacter
@@ -27,4 +28,15 @@ public:
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+							//VARIABLES//
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "PlayerController")
+		AChessController* PlayerController;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Arrays")
+		TArray<ABaseActor*> KilledShapes;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "BOOL")
+		bool bIsWhite;
+
+							//VARIABLES//
 };

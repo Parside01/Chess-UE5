@@ -14,8 +14,6 @@ ABaseActor::ABaseActor()
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	StaticMeshComponent->SetupAttachment(RootComponent);
-
-	bIsWhite = UKismetMathLibrary::RandomBool();
 }
 
 void ABaseActor::BeginPlay()
