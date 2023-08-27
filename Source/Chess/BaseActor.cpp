@@ -1,9 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
-#include "Kismet/KismetMathLibrary.h"
-
 #include "BaseActor.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Cell.h"
 
 
@@ -34,7 +32,7 @@ void ABaseActor::StopChoose()
 	bIsWhite ? StaticMesh->SetMaterial(0, WhiteMaterial) : StaticMesh->SetMaterial(0, BlackMaterial);
 }
 
-void ABaseActor::ActorPathFinder(TMap<FString, ACell*>& Cells)
+void ABaseActor::ActorPathFinder(TMap<FString, ACell*> Cells)
 {
 }
 

@@ -8,6 +8,8 @@
 
 class AChessController;
 class ABaseActor;
+class UCameraComponent;
+class USpringArmComponent;
 
 UCLASS()
 class CHESS_API AChessPlayer : public ACharacter
@@ -37,6 +39,12 @@ public:
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "BOOL")
 		bool bIsWhite;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Camera")
+		UCameraComponent* Camera;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Camera")
+		USpringArmComponent* SpringArm;
 
 							//VARIABLES//
 };

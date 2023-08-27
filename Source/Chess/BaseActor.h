@@ -60,7 +60,7 @@ public:
 
 
 	UFUNCTION()
-		virtual void ActorPathFinder(TMap<FString, ACell*>& Cells);
+		virtual void ActorPathFinder(TMap<FString, ACell*> Cells);
 
 	UFUNCTION()
 		virtual void Move(FVector Location);

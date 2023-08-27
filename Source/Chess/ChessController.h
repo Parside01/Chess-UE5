@@ -11,6 +11,7 @@
  */
 class AChessPlayer;
 class ABoard;
+class ABaseActor;
 
 UCLASS()
 class CHESS_API AChessController : public APlayerController
