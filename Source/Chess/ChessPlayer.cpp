@@ -5,6 +5,7 @@
 
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 AChessPlayer::AChessPlayer()
 {
@@ -14,15 +15,17 @@ AChessPlayer::AChessPlayer()
 	
 
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	SpringArm->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, 50.0f), FRotator(-60.0f, 0.0f, 0.0f));
+	SpringArm->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, 50.0f), FRotator(-45.0f, 0.0f, 0.0f));
 	SpringArm->SetupAttachment(RootComponent);
 	SpringArm->bDoCollisionTest = false;
 	SpringArm->TargetArmLength = 500.f;
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagSpeed = 3.0f;
+	
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
+
 }
 
 
@@ -32,6 +35,7 @@ void AChessPlayer::BeginPlay()
 
 	PlayerController = Cast<AChessController>(GetController());
 	if (PlayerController) GEngine->AddOnScreenDebugMessage(-1, 20.f, FColor::Red, TEXT("BEBMLEMB"));
+	GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_Flying);
 }
 
 void AChessPlayer::Tick(float DeltaTime)

@@ -19,13 +19,13 @@ void AChessController::BeginPlay()
 
 	Board = GetWorld()->SpawnActor<ABoard>(FVector(0), FRotator(0));
 
-	FirstPlayer = GetWorld()->SpawnActor<AChessPlayer>(FVector(1600.0, 3700.0, 1500), FRotator(20.0f, -90.0f, 0.0f));
-	FirstPlayer->bIsWhite = true;
-	CurrentPlayer = FirstPlayer;
+	//FirstPlayer = GetWorld()->SpawnActor<AChessPlayer>(FVector(1600.0, 3700.0, 1500), FRotator(20.0f, -90.0f, 0.0f));
+	//FirstPlayer->bIsWhite = true;
+	//CurrentPlayer = FirstPlayer;
 
-	SecondPlayer = GetWorld()->SpawnActor<AChessPlayer>(FVector(1600.0, -500.0, 1500), FRotator(20.0f, 90.0f, 0.0f));
-	SecondPlayer->bIsWhite = false;
-	PrevPlayer = SecondPlayer;
+	//SecondPlayer = GetWorld()->SpawnActor<AChessPlayer>(FVector(1600.0, -500.0, 1500), FRotator(20.0f, 90.0f, 0.0f));
+	//SecondPlayer->bIsWhite = false;
+	//PrevPlayer = SecondPlayer;
 
 	SpawnWhiteShapes();
 	SpawnBlackShapes();
