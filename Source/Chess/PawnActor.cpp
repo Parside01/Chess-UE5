@@ -3,3 +3,7 @@
 
 #include "PawnActor.h"
 
+void APawnActor::ActorPathFinder(ABoard* Cells)
+{
+
+}

@@ -37,7 +37,7 @@ void ABaseActor::StopChoose()
 	bIsWhite ? StaticMesh->SetMaterial(0, WhiteMaterial) : StaticMesh->SetMaterial(0, BlackMaterial);
 }
 
-void ABaseActor::ActorPathFinder(TMap<FString, ACell*> Cells)
+void ABaseActor::ActorPathFinder(ABoard* Cells)
 {
 }
 

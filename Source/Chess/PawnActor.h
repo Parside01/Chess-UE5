@@ -15,8 +15,9 @@ class CHESS_API APawnActor : public ABaseActor
 	GENERATED_BODY()
 
 				//FUNCTION//
+
 	UFUNCTION()
-		virtual void ActorPathFinder(TMap<FString, ACell*> Cells);
+		virtual void ActorPathFinder(ABoard* Cells);
 
 				//FUNCTION//
 };
