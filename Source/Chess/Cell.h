@@ -28,12 +28,19 @@ protected:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cell StaticMesh")
 		 UStaticMesh* StaticMesh;
-	
+
+public:
+
+	UPROPERTY()
+		bool bIsWhite;
 	
 public:
 
 	UFUNCTION()
 		void SetMaterial(UMaterial* Material) { StaticMeshComponent->SetMaterial(0, Material); }
+
+	UFUNCTION()
+		FORCEINLINE UMaterial* GetCurrentMaterial() const { return Cast<UMaterial>(StaticMeshComponent->GetMaterial(0)); }
 
 	UFUNCTION()
 		UStaticMeshComponent* GetStaticMesh() { return StaticMeshComponent; }

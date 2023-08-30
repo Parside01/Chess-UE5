@@ -9,6 +9,7 @@
 class UMaterial;
 class UStaticMeshComponent;
 class ACell;
+class ABoard;
 
 UCLASS()
 class CHESS_API ABaseActor : public AActor
@@ -48,7 +49,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Variables")
 		bool bIsWhite;
 
-
+	UPROPERTY()
+		ABoard* Board;
 
 //function dir
 public:
@@ -67,4 +69,11 @@ public:
 
 	UFUNCTION()
 		virtual void Dead();
+
+	UFUNCTION()
+		FORCEINLINE ABoard* GetBoard() const { return Board; }
+
+private:
+
+	ABoard* InitBoard();
 };

@@ -16,6 +16,7 @@ public:
 
 protected:
 
+							//VARIABLES//
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
 		UMaterial* LightMaterial;
 
@@ -23,7 +24,13 @@ protected:
 		UMaterial* DarkMaterial;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
-		UMaterial* HightlightedMaterial;
+		UMaterial* DarkHightlightMaterial;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
+		UMaterial* LightHightlightMaterial;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Material")
+		UMaterial* DefaultHightlightMaterial;
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Material")
 		UMaterial* DefaultMaterial;
@@ -31,13 +38,26 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Map")
 		TMap<FString, ACell*> Board;
 
+							//VARIABLES//
+
 	virtual void BeginPlay() override;
 
 	void InitBoard();
 
 public:	
 
+
+							//FUNCTION//
 	UFUNCTION()
 		FORCEINLINE TMap<FString, ACell*> GetBoard() { return Board; }
 
+	UFUNCTION()
+		void HightlightCells(TArray<ACell*> HightlightCells);
+
+	UFUNCTION()
+		void RemoveHightlightCells(TArray<ACell*> HightlightCells);
+
+	UFUNCTION()
+		void RemoveAllHightlightCells();
+							//FUNCTION//
 };

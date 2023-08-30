@@ -2,7 +2,9 @@
 
 #include "BaseActor.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/GameplayStatics.h"
 #include "Cell.h"
+#include "Board.h"
 
 
 ABaseActor::ABaseActor()
@@ -12,12 +14,15 @@ ABaseActor::ABaseActor()
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	StaticMeshComponent->SetupAttachment(RootComponent);
+
+	Board = nullptr;
 }
 
 void ABaseActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	Board = InitBoard();
 }
 
 void ABaseActor::StartChoose()
@@ -44,6 +49,18 @@ void ABaseActor::Move(FVector Location)
 void ABaseActor::Dead()
 {
 	Destroy();
+}
+
+ABoard* ABaseActor::InitBoard()
+{
+	if (!GetWorld()) return nullptr;
+	TArray<AActor*> Actors;
+
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABoard::StaticClass(), Actors);
+
+	if (Actors.IsEmpty()) return nullptr;
+	ABoard* Result = Cast<ABoard>(Actors[0]);
+	return Result;
 }
 
 
